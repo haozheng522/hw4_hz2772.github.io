@@ -15,8 +15,8 @@ navbar:
       href: mailto:<hz2772@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: https://github.com/haozheng522/
-    - icon: fa-instagram fa-lg
-      href: https://www.instagram.com/haooooo_22/?r=nametag
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/%E5%A5%BD-%E9%83%91-606848225
 output:
   html_document:
     theme: journal

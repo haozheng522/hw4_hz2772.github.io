@@ -1,0 +1,55 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+Column {data-width=600}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+data("instacart")
+#barplot
+instacart %>%
+  count(product_name) %>% 
+  rename(count=n) %>%
+  filter(count>3000) %>%
+  mutate(product_name = fct_reorder(product_name, count)) %>% 
+  plot_ly(x = ~product_name, y = ~count, color = ~product_name, type = "bar", colors = "viridis")
+```
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+#boxplot
+instacart %>%
+  mutate(department = fct_reorder(department,order_hour_of_day)) %>% 
+  plot_ly(y = ~order_hour_of_day, color = ~department, type = "box", colors = "viridis")
+```
+
+### Chart C
+
+```{r}
+#scatter plot
+instacart %>%
+  group_by(aisle,aisle_id,department) %>%
+  summarise(count=n())  %>%
+  mutate(text_label = str_c("Aisle ID: No.", aisle_id, "\nDepartment: ", department)) %>% 
+  plot_ly(
+    x = ~count, y = ~aisle, type = "scatter", mode = "markers",color=~count, text = ~text_label, alpha = 0.5)
+```

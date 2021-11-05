@@ -1,0 +1,44 @@
+---
+title: "Plotly"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+This page is for some plots of "Instacart".
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+Let's look at the Instacart.
+
+```{r}
+data("instacart")
+
+#scatter plot
+instacart %>%
+  group_by(aisle,aisle_id,department) %>%
+  summarise(count=n())  %>%
+  mutate(text_label = str_c("Aisle ID: No.", aisle_id, "\nDepartment: ", department)) %>% 
+  plot_ly(
+    x = ~count, y = ~aisle, type = "scatter", mode = "markers",color=~count, text = ~text_label, alpha = 0.5) 
+  
+#boxplot
+instacart %>%
+  mutate(department = fct_reorder(department,order_hour_of_day)) %>% 
+  plot_ly(y = ~order_hour_of_day, color = ~department, type = "box", colors = "viridis")
+
+#barplot
+instacart %>%
+  count(product_name) %>% 
+  rename(count=n) %>%
+  filter(count>3000) %>%
+  mutate(product_name = fct_reorder(product_name, count)) %>% 
+  plot_ly(x = ~product_name, y = ~count, color = ~product_name, type = "bar", colors = "viridis")
+  
+```
+
+Here's back to [index](index.html) page.

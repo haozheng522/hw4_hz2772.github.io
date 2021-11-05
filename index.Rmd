@@ -1,0 +1,18 @@
+---
+title: "Index"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# This is Hao's awesome website!
+
+Welcome! This is for my homework4.
+
+# My favorite dish
+
+This is Chinese spicy food: Hot Pot!
+<img src="docu/hotpot.jpeg" style="width:75%">
+
+

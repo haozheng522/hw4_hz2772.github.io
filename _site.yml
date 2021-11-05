@@ -1,0 +1,22 @@
+name: "Hao's website"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About"
+      href: About.html
+    - text: "Author"
+      href: Author.html
+    - text: "Plotly"
+      href: Plotly.html
+    - text: "Dashboard"
+      href: dashboard.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<hz2772@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: https://github.com/haozheng522/
+    - icon: fa-instagram fa-lg
+      href: https://www.instagram.com/haooooo_22/?r=nametag
+output:
+  html_document:
+    theme: journal

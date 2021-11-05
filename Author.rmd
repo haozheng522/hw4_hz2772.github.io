@@ -1,0 +1,15 @@
+---
+title: "Author"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+This page shows my academic and professional experience.
+
+
+<img src="docu/cv.jpeg" style="width:75%">
+
+
+Here's back to [index](index.html) page.
